@@ -1,0 +1,35 @@
+.ui-waterfall {
+  position:relative;
+  
+}
+
+
+.box {
+  float:left;
+  border: 1px solid purple;
+  padding: 0.5em 0.5em;
+  margin-right: 1em;
+  border-radius: 0.5em;
+  width:13em;
+}
+
+.box dt {
+  border-bottom: 3px solid purple;
+  line-height: 1.8;
+  color: purple;
+}
+
+.box dd { 
+  margin-left: 0;
+}
+
+.box ul, .box ol {
+  padding-left: 1em;
+}
+
+#demo {
+  width:32em;
+  height:20em;
+  border:1px solid silver;
+}
+
