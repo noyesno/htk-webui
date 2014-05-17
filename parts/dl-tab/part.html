@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="HTML UI: Tab" />
+<meta name="author" content="noyesno"/>
+<title>HTML UI</title>
+<link rel="stylesheet" type="text/css" href="part.css"/>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>HTML UI: Tab</h1>
+
+<article>
+<section>
+<dl class="demo-tab">
+  <dt>Tab 1</dt>
+  <dd>Content 1...</dd>
+  <dt>Tab 2</dt>
+  <dd><h2>Content 2...</h2></dd>
+</dl>
+</section>
+  
+  <section>
+<dl class="demo-tab">
+  <dt>Tab 1</dt>
+  <dt>Tab 2</dt>
+  <dd>Second Content 1 ...</dd>
+  <dd>
+    <h3>Second Content 2 ...</h3>
+  </dd>
+</dl>
+</section>
+</article>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="part.js"></script>
+<script>
+$(function(){
+  $('.demo-tab').dltab();
+})
+</script>
+</body>
+</html>

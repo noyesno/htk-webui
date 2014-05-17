@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="Scroll Aside" />
+<meta name="author" content="noyesno"/>
+<title>Scroll Aside</title>
+<link rel="stylesheet" type="text/css" href="part.css"/>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Scroll Aside</h1>
+
+<article>
+<section id="main">
+  <div id="aside">Aside</div>
+</section>
+</article>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="part.js"></script>
+
+<script>
+// Fill in Dummy HTML
+var buffer = [];
+for(var i=0; i<100; i++){
+  buffer.push('<p>Line ... '+i+'</p>');
+}
+$('section').append(buffer.join(''));
+
+
+$(function(){
+  $('#aside').scrollfloat();
+});
+</script>
+</body>
+</html>

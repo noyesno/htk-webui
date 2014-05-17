@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="Image Slide"/>
+<meta name="author" content="noyesno"/>
+<title>Image Slide</title>
+<link rel="stylesheet" type="text/css" href="part.css"/>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<h1>Image Slide</h1>
+
+<article>
+<section id="demo" class="tk-slide" style="width:640px;height:320px">
+  <a href="http://noyesno.net/"><img class="bigImg" width="640" height="320"/></a>
+
+  <div class="mask">
+    <a href="http://noyesno.net/"><img src="http://dummyimage.com/640x320/ccf/fff.jpg&text=1" width="60" height="22"/></a>
+    <a href="http://noyesno.net/"><img src="http://dummyimage.com/640x320/cfc/fff.jpg&text=2" width="60" height="22"/></a>
+    <a href="http://noyesno.net/"><img src="http://dummyimage.com/640x320/fcc/fff.jpg&text=3" width="60" height="22"/></a>
+    <a href="http://noyesno.net/"><img src="http://dummyimage.com/640x320/99c/fff.jpg&text=4" width="60" height="22"/></a>
+    <a href="http://noyesno.net/"><img src="http://dummyimage.com/640x320/cc9/fff.jpg&text=5" width="60" height="22"/></a>
+  </div>
+</section>
+</article>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="part.js"></script>
+
+<script>
+$(function(){
+  $('.tk-slide').slide({speed:3000});
+});
+</script>
+</body>
+</html>
