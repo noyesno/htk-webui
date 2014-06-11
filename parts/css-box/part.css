@@ -1,0 +1,49 @@
+html {
+	background-color:white;
+}
+
+body {
+  margin:1em 1em 1em;
+	border:1px dashed red;
+	background-color:#cff;
+}
+
+#parent {
+	border:1px solid silver;
+  height:16em;
+	max-width:128em;
+	margin:auto;
+	position:relative;
+	border-left:1em solid red;
+	border-top:1em solid blue;
+	text-align:center;
+	outline:1em solid purple;
+	padding:1em;
+	border-radius:1em;
+}
+
+#child {
+  background-color:green;
+	min-height:2em;
+	position:relative;
+	text-align:left;
+}
+
+input[type="number"] {
+  width:3em;
+	text-align:right;
+}
+
+fieldset {
+  margin-bottom:2em;
+}
+
+label {
+	white-space:pre-line;
+	font-family:monospace;
+	margin:0 0.2em;
+}
+
+fieldset p {
+  margin:0;
+}

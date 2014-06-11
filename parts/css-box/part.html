@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="part.css"/>
+<style type="text/css">
+</style>		
+	</head>
+<body>
+	<h1>
+		CSS Box Model
+	</h1>
+	<fieldset>
+		<legend>
+			CSS #parent
+		</legend>
+		<form>
+			
+			<input type="hidden" name="selector" value="#parent"/>
+	<p>
+		position: 
+<label><input type="radio" name="position" value="static"/>Static</label>
+<label><input type="radio" name="position" value="relative"/>relative</label>
+<label><input type="radio" name="position" value="absolute"/>absolute</label>
+<label><input type="radio" name="position" value="fixed"/>fixed</label>
+		
+</p>
+		<p>
+			<label>    margin:<input type="number" name="margin" value="0"/></label>
+			<label>   padding:<input type="number" name="padding" value="0"/></label>
+			<label>    outline:<input type="number" name="outline-width" value="0"/></label>
+		</p>
+		<p>
+      <label>border-top:<input type="number" name="border-top-width" value="0"/></label>
+			<input type="color" name="border-top-color"/>
+      <label>border-left:<input type="number" name="border-left-width" value="0"/></label>
+				<input type="color" name="border-left-color"/>
+
+		</p>
+	</form>
+	</fieldset>
+	
+			<fieldset>
+		<legend>
+			CSS #child
+		</legend>
+				<form>
+			
+			<input type="hidden" name="selector" value="#child"/>
+<p>
+	position:
+<label><input type="radio" name="position" value="static"/>Static</label>
+<label><input type="radio" name="position" value="relative"/>relative</label>
+<label><input type="radio" name="position" value="absolute"/>absolute</label>
+<label><input type="radio" name="position" value="fixed"/>fixed</label>
+</p>
+
+<label>left:<input type="number" name="left" value="0"/></label>
+<label>top:<input type="number" name="top" value="0"/></label>
+<label>right:<input type="number" name="right" value="0"/></label>
+<label>bottom:<input type="number" name="bottom" value="0"/></label>
+					
+					<p>
+	<label>white-space: <select name="white-space">
+							<option value="normal">normal</option>
+							<option value="pre">pre</option>
+							<option value="nowrap">nowrap</option>
+							<option value="pre-wrap">pre-wrap</option>
+							<option value="pre-line">pre-line</option>
+
+						</select></label>
+</p>
+				</form>
+	</fieldset>
+
+<div id="parent">
+	Parent
+	<p style="text-align:left">
+		Left
+	</p>
+		<p style="text-align:Right">
+		Right
+	</p>
+	<div id="child">
+		 Child
+		Another Line
+	</div>
+</div>
+	
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="part.js"></script>  
+	</body>
+</html>

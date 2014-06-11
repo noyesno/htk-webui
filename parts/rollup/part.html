@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="description" content="Scroll Aside" />
+<meta name="author" content="noyesno"/>
+<title>Roll Up</title>
+<link rel="stylesheet" type="text/css" href="../boot.css"/>
+<link rel="stylesheet" type="text/css" href="part.css"/>
+<style type="text/css">
+#part {
+  max-height:13em;
+  background-color:#cfc;
+  padding:0.5em;
+}
+</style>
+</head>
+<body>
+
+<h1>Roll UP</h1>
+
+<article>
+<section id="main">
+  <ul id="part"></ul>
+</section>
+</article>
+
+<hr/>
+
+<article>
+<dl id="part-source">
+<dt>HTML</dt>
+<dd><pre id="html" class="sh_html"></pre></dd>
+<dt>JavaScript</dt>
+<dd><pre id="js" class="sh_javascript"></pre></dd>
+<dt>CSS</dt>
+<dd><pre id="css" class="sh_css"></pre></dd>
+<dt>Plugin JavaScript</dt>
+<dd>TODO</dd>
+<dt>Plugin CSS</dt>
+<dd>TODO</dd>
+</dl>
+</article>
+  
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="../boot.js"></script>
+<script src="part.js"></script>
+
+<script>
+// Fill in Dummy HTML
+var buffer = [];
+for(var i=0; i<24; i++){
+  buffer.push('<li>Line ... '+i+'</li>');
+}
+$('#part').append("\n"+buffer.join("\n")+"\n");
+</script>
+
+
+<script>
+$(function(){
+  $('#part').rollup({size:9});
+});
+</script>
+</body>
+</html>
