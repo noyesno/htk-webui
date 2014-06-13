@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- link rel="stylesheet" type="text/css" href="part.css"/ -->
+<style type="text/css">
+form {
+  max-width:42em;
+}
+
+fieldset {
+  padding:1em;
+}
+</style>		
+</head>
+<body>
+<h1>CSS Box Model</h1>
+<form id="demo">
+<fieldset>
+  <legend>Populate Form</legend>
+
+  <input type="text"  name="t1"/><br/>
+  <input type="email" name="t2"/><br/>
+
+  <input type="radio" name="r" value="r1"/> r1 
+  <input type="radio" name="r" value="r2"/> r2
+  <input type="radio" name="r" value="r3"/> r3
+  <input type="radio" name="r" value="r4"/> r4
+  <br/>
+  <input type="checkbox" name="c" value="c1"/> c1 
+  <input type="checkbox" name="c" value="c2"/> c2
+  <input type="checkbox" name="c" value="c3"/> c3
+  <input type="checkbox" name="c" value="c4"/> c4
+  <br/>
+  <select  name="s1">
+  <option value="s1"/>s1</option> 
+  <option value="s2"/>s2</option>
+  <option value="s3"/>s3</option>
+  <option value="s4"/>s4</option>
+  </select>
+  <select  name="s2">
+  <option value="s1"/>s1</option> 
+  <option value="s2"/>s2</option>
+  <option value="s3"/>s3</option>
+  <option value="s4"/>s4</option>
+  </select>
+  <br/>
+  <select  name="s3[]" multiple>
+  <option value="s1"/>s1</option> 
+  <option value="s2"/>s2</option>
+  <option value="s3"/>s3</option>
+  <option value="s4"/>s4</option>
+  </select>
+  <select  name="s4[]" multiple>
+  <option value="s1"/>s1</option> 
+  <option value="s2"/>s2</option>
+  <option value="s3"/>s3</option>
+  <option value="s4"/>s4</option>
+  </select>
+  <br/>
+  <textarea name="t9"></textarea>
+
+<p>
+  <button type="submit" name="b1" value="">Submit</button>  
+  <button type="reset"  name="b2" value="">Reset</button>  
+</p>
+</fieldset>
+</form>
+
+<script src="part.js"></script>  
+<script>
+var values = {
+  't1':'t1 value',
+  't2':'t2 value',
+  't9':'t9 value',
+  'r' :'r2',
+  'c' :['c2', 'c3'],
+  's1':'s2',
+  's2':'s3',
+  's3':['s2', 's3'],
+  's4':['s1', 's3'],
+  'b1':'b1 value',
+  'b2':'b2 value'
+};
+
+AppForm.populate(document.getElementById('demo'), values);
+</script>
+</body>
+</html>
