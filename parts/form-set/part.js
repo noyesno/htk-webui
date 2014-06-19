@@ -5,48 +5,46 @@ window.AppForm = window.AppForm || {};
 AppForm.populate = function(form, values){
   // $('input,select,textarea,button',form)
   var items = form.elements;
-  for(var i=0, ni=items.length; i<ni; i++){
-    var self = items[i];
-    var oldValue = self.value;
-    var name = self.name, tagName=self.tagName, type=self.type;
+  for(var i=0, item; item=items[i]; i++){
+    var name = item.name, tagName=item.tagName, type=item.type;
 
-    if(self.hasAttribute('data-noset')) continue;
+    if(item.hasAttribute('data-noset')) continue;
     name=name.replace(/[\[\]]/g,'');
     if(!values.hasOwnProperty(name)) continue; 
 
     var value = values[name];
     if(tagName == "INPUT"){
       if(type == "radio"){
-        console.log(value);
-        value == self.value ?
-          self.setAttribute('checked','checked')
-         :self.removeAttribute('checked');
+        console.debug(value);
+        value == item.value ?
+        item.setAttribute('checked','checked') :
+        item.removeAttribute('checked');
       }else if(type == "checkbox"){
-        value.indexOf(self.value)>=0 ?
-            self.setAttribute('checked','checked')
-          : self.removeAttribute('checked');
+        value.indexOf(item.value)>=0 ?
+        item.setAttribute('checked','checked') :
+        item.removeAttribute('checked');
       }else{
-        console.log(value);
-        self.value = value;
+        console.debug(value);
+        item.value = value;
       }
     }else if(tagName == "SELECT"){
-      var options = self.options,
-          multiple= self.hasAttribute('multiple');
+      var options = item.options,
+          multiple= item.hasAttribute('multiple');
       for(var j=0, nj=options.length; j<nj; j++){ 
         if(multiple){
           value.indexOf(options[j].value)>=0 ?
-             options[j].setAttribute("selected","selected")
-            :options[j].removeAttribute("selected");
+          options[j].setAttribute("selected","selected") :
+          options[j].removeAttribute("selected");
         }else{
           value == options[j].value ?
-             options[j].setAttribute("selected","selected")
-            :options[j].removeAttribute("selected");
+          options[j].setAttribute("selected","selected") :
+          options[j].removeAttribute("selected");
         }
       }
     }else if(tagName == "BUTTON"){
       // ignore
     }else{
-      self.value = value;
+      item.value = value;
     }
   } //end for
 };
