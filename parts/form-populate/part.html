@@ -1,0 +1,98 @@
+
+<head>
+<title>Form Populate</title>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+</head>
+
+<h1>Form Populate</h1>
+
+<hr/>
+
+<form id="part">
+  <p>
+    Name: <input type="text" name="name"/>
+  </p>
+  <p>
+    Sex:
+    <label><input type="radio" name="sex" value="M"/> M</label>
+    <label><input type="radio" name="sex" value="F"/> F</label>
+  </p>
+  <p>
+    Hobbies:
+    <label><input type="checkbox" name="hobby" value="swim"/> swim</label>
+    <label><input type="checkbox" name="hobby" value="sing"/> Sing</label>
+    <label><input type="checkbox" name="hobby" value="bicycle"/> bicycle</label>
+    <label><input type="checkbox" name="hobby" value="car"/> car</label>
+  </p>
+  <p>
+    Address 1: <input type="text" name="address[]" placeholder="address"/><br/>
+    Address 2: <input type="text" name="address[]" placeholder="address"/>
+  </p>
+     
+</form>
+
+
+<script name="part.js">
+
+pone = window.pone || {};
+pone.form = pone.form || {};
+
+pone.form.populate = function(form, values){
+  // $('input,select,textarea,button',form)
+  var count = {};
+  $(':input',form).val(function(i,oldvalue){
+    var name = this.name, tagName=this.tagName, type=this.type, multiple=this.hasAttribute('multiple');
+    if(this.hasAttribute('data-noset')) return oldvalue; 
+    var is_multiple = name.match(/\[\]/);
+    name=name.replace(/[\[\]]/g,'');
+    if(!values.hasOwnProperty(name)) return oldvalue;
+
+    if(is_multiple && !(name in count)){
+      count[name] = 0;
+    }
+
+    var value = values[name];
+    if(tagName == "INPUT"){
+      if(type == "radio"){
+        console.log(value);
+        return [value];
+      }else if(type == "checkbox"){
+        return value;
+      }else{
+        if(!is_multiple){
+          console.log(value);
+          return value;
+        }else{
+          var result = (value instanceof Array)?value[count[name]]:value;
+          count[name]++;
+          return result;
+        }
+      }
+    }else if(tagName == "SELECT"){
+      if(multiple){
+        return value;
+      }else{
+        return value;
+      }
+    }else{
+        return value;
+    }
+  });
+}
+</script>
+
+<script>
+pone.form.populate(
+  document.getElementById('part'),
+  {
+     name: "hello",
+     sex: "M",
+     hobby: ['swim', 'bicycle'],
+     address: ['address 1', 'address 2']  
+  }
+);
+</script>
+
+<hr/>
+
+
