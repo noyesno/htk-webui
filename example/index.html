@@ -1,0 +1,86 @@
+<style>
+table {
+  border-collapse:collapse;
+  min-width:480px;
+}
+
+td {
+  border:1px solid silver;
+  text-align:center;
+}
+</style>
+
+<h1>HTk Example</h1>
+
+<script src="../src/htk.js"></script>
+
+<div id="template">
+<h2>Render Variable </h2>
+
+  <p>msg = ${msg} !</p>
+
+<h2>Update Variable</h2>
+
+  Date Time: ${time}
+
+<h2>Nested Variable</h2>
+
+  <p>meta.mtime = ${meta.mtime} # nested value</p>
+
+<h2>Undefined Variable</h2>
+
+  <p>time2 = ${def}</p>
+
+<h2>List</h2>
+
+  <ul>
+    <li>item ${records[0].a}</li>
+    <li>item ${records[1].a}</li>
+    <li>item ${records[1].b}</li>
+    <li>item ${records[1].c}</li>
+  </ul>
+
+<h2>Table</h2>
+
+  <table>
+    <tr>
+      <td>${records[0].a}</td>
+      <td>${records[0].b}</td>
+      <td>${records[0].c}</td>
+    </tr>
+    <tr>
+      <td>-- ${records[1].a} --</td>
+      <td>-- ${records[1].b} --</td>
+      <td>-- ${records[1].c} --</td>
+    </tr>      
+  </table>
+</div>
+
+
+<script>
+var data =  {
+  time:789,
+  msg:"hellp",
+  meta:{mtime:123, time3:34},
+  records:[
+    {a:1, b:2, c:3},
+    {a:4, b:5, c:6},
+    {a:7, b:8, c:9}
+  ]
+};
+
+
+var dom = document.getElementById("template");
+
+HTk(dom, data)
+
+data.msg        = "hello world";
+data.meta.mtime = "mtime is 456";
+data.records[1].c = 9;
+
+
+setInterval(function(){
+  data.time = new Date();
+},1000);
+</script>
+

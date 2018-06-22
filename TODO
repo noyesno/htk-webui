@@ -1,0 +1,6 @@
+
+  [+] watch data type [{}, {}, ...]
+  [+] example for ``<table>``
+  [+] example for ``<ul>``, ``<dl>``
+  [+] support dynamic generated DOM
+
