@@ -1,0 +1,73 @@
+
+<style>
+table {
+  border-collapse:collapse;
+  min-width:640px;
+}
+
+tbody {
+  border:1px solid #333;
+}
+
+td {
+  border:1px solid #eee;
+}
+</style>
+
+<article>
+<h1>Table Sort</h1>
+
+<table>
+  <tbody id="tbody-1">
+    <tr><td>3</td><td></td></tr>
+    <tr><td>1</td><td></td></tr>
+    <tr><td>2</td><td></td></tr>
+    <tr><td>5</td><td></td></tr>
+    <tr><td>4</td><td></td></tr>
+  </tbody>
+  <tbody id="tbody-2">
+    <tr><td>19</td><td></td></tr>
+    <tr><td>17</td><td></td></tr>
+    <tr><td>18</td><td></td></tr>
+    <tr><td>16</td><td></td></tr>
+    <tr><td>15</td><td></td></tr>
+  </tbody>
+</table>
+
+<p>
+  <button type="button" onclick="tablesort('tbody-1', 0)">Sort TBODY 1</button>
+  <button type="button" onclick="tablesort('tbody-2', 0)">Sort TBODY 2</button>
+  <button type="button" onclick="tablesort('tbody-2', 0, 'rand')">Rand TBODY 1</button>
+  <button type="button" onclick="tablesort('tbody-2', 0, 'rand')">Rand TBODY 2</button>
+</p>
+
+</article>
+
+<script>
+function tablesort(id, colidx, sortfn){
+    var that = document.getElementById(id);
+    var tbody = that;
+    var rows = tbody.rows;
+    var records = [];
+    for(var i=0, len=rows.length; i<len; i++){
+        var row = rows[i];
+        var cell = row.cells[colidx];
+        var rank = parseFloat(cell.innerText);
+        records.push([rank, row]);
+    }
+    if (sortfn == "rand"){
+      records.sort(function(a, b){
+          return Math.random()-0.5;
+      });
+    } else {
+      records.sort(function(a, b){
+          return a[0] - b[0];
+      });
+    }
+    for(var i=0, n=records.length; i<n; i++){
+        var row = records[i][1];
+        tbody.appendChild(row);
+    }
+    return;
+}
+</script>
